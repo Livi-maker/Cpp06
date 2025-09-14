@@ -37,7 +37,7 @@ int	ScalarConverter::isIntLiteral(std::string literal)
 			if (literal[i] == '-')
 				sign = -1;
 		}
-		if (literal[i] < '0' || literal[i] > '9')
+		else if (literal[i] < '0' || literal[i] > '9')
 			return (0);
 		if ((number * sign) > 2147483647 || (number * sign) < -2147483648)
 			return (0);

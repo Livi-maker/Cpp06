@@ -1,18 +1,12 @@
 #include "ScalarConverter.hpp"
 
-int	main()
+int	main(int ac, char** av)
 {
-	ScalarConverter::convert("inff");
-	std::cout << std::endl;
-	ScalarConverter::convert("1");
-	std::cout << std::endl;
-	ScalarConverter::convert("'c'");
-	std::cout << std::endl;
-	ScalarConverter::convert("22.05f");
-	std::cout << std::endl;
-	ScalarConverter::convert("44.01");
-	std::cout << std::endl;
-	ScalarConverter::convert("ciao");
-	std::cout << std::endl;
-	ScalarConverter::convert("0.0");
+	if (ac != 2)
+	{
+		std::cout << "Wrong number of arguments" << std::endl;
+		return (1);
+	}
+	ScalarConverter::convert(av[1]);
+	return (0);
 }
