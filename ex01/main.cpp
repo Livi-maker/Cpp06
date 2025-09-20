@@ -13,5 +13,7 @@ int main()
 	std::cout << adress << std::endl;
 	Data* ptr = Serializer::deserialize(adress);
 	std::cout << ptr->string << " " << ptr->number << std::endl;
+
+	delete (data);
 }
 

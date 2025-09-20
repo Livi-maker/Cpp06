@@ -38,23 +38,43 @@ void	identify(Base* p)
 
 void	identify(Base& p)
 {
-	if (dynamic_cast<A *>(&p) != NULL)
+	Base& ref = p;
+	try
+	{
+		ref = dynamic_cast<A &>(p);
 		std::cout << "A class" << std::endl;
-	else if (dynamic_cast<B *>(&p) != NULL)
+		return ;
+	}
+	catch (std::exception &e)
+	{}
+	try
+	{
+		ref = dynamic_cast<B &>(p);
 		std::cout << "B class" << std::endl;
-	else if (dynamic_cast<C *>(&p) != NULL)
+		return ;
+	}
+	catch (std::exception &e)
+	{}
+	try
+	{
+		ref = dynamic_cast<C &>(p);
 		std::cout << "C class" << std::endl;
-	else
+	}
+	catch (std::exception &e)
+	{
 		std::cout << "type not recognized\n";
+	}
 }
 
 int main()
 {
 	Base*	random = generate();
+	Base*	ref = new Base;
 
 	identify(random);
 	identify(*random);
+	identify(*ref);
 	delete (random);
-
+	delete (ref);
 	identify(NULL);
 }
