@@ -78,9 +78,11 @@ void	ScalarConverter::print(double p, std::string literal)
 {
 	std::string flag = "";
 	int			pos;
+	std::string second;
 
 	pos = literal.find(".");
-	if (pos == -1 || literal.substr(pos) == ".0" || literal.substr(pos) == ".00" || literal.substr(pos) == ".0f" || literal.substr(pos) == ".00f")
+	second = literal.substr(pos + 1);
+	if (pos == -1 || std::atoi(second.c_str()) == 0)
 		flag = ".0";
 	if (p < 32 || p > 127)
 		std::cout << "CHAR: non displayable" << std::endl;

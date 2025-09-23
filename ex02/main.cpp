@@ -71,10 +71,13 @@ int main()
 	Base*	random = generate();
 	Base*	ref = new Base;
 
+	std::cout << "RANDOM CLASS" << std::endl;
 	identify(random);
 	identify(*random);
+	std::cout << "\nBASE CLASS\n";
 	identify(*ref);
 	delete (random);
 	delete (ref);
+	std::cout << "\nNULL CLASS\n";
 	identify(NULL);
 }
