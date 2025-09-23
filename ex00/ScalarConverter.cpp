@@ -22,6 +22,8 @@ int	ScalarConverter::isStringLiteral(std::string literal)
 		if (literal[0] == '\'' && literal[2] == '\'')
 			return (4);
 	}
+	else if (literal.length() == 1)
+		return (5);
 	return (0);
 }
 
@@ -126,6 +128,10 @@ void	ScalarConverter::convert(std::string literal)
 		break;
 	case 4:
 		doubleNum = literal[1];
+		print(doubleNum, literal);
+		break;
+	case 5:
+		doubleNum = literal[0];
 		print(doubleNum, literal);
 		break;
 	default:
