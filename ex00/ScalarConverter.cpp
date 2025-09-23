@@ -114,6 +114,8 @@ void	ScalarConverter::convert(std::string literal)
 	double	doubleNum;
 
 	type += isStringLiteral(literal) + isIntLiteral(literal) + isFloat(literal);
+	if (type == 6)
+		type = 1;
 	switch (type)
 	{
 	case 1:
